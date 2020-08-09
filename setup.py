@@ -6,10 +6,11 @@ setup(
     version='0.0.0',
     license='MIT',
     description='The public Xiler python utility library.',
+    long_description="README.rst",
     author='Xiler Network - Arthurdw',
     author_email='mail.arthurdw@gmail.com',
     url='https://github.com/XilerNet/UtilsX',
-    download_url='none',
+    download_url='https://github.com/XilerNet/UtilsX/archive/v0.0.0.tar.gz',
     keywords=["Xiler", "utils"],
     install_requires=[],
     classifiers=[
