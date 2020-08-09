@@ -1,12 +1,20 @@
 from distutils.core import setup
 
+from os import path
+
+from utilsx import version
+
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, 'README.rst'), encoding='utf-8') as f:
+    long_description = f.read()
+
 setup(
     name='utilsx',
     packages=['utilsx'],
-    version='0.0.0',
+    version=version,
     license='MIT',
     description='The public Xiler python utility library.',
-    long_description="README.rst",
+    long_description=long_description,
     author='Xiler Network - Arthurdw',
     author_email='mail.arthurdw@gmail.com',
     url='https://github.com/XilerNet/UtilsX',
