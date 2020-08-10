@@ -8,3 +8,5 @@ The public Xiler Python utility library
 ***************************************
 
 Currently WIP
+
+More information about updates can be found in `our discord <https://dc.xiler.net>`_.

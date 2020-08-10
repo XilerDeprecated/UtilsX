@@ -1,8 +1,12 @@
 from discord.ext import commands
-from utilsx.discord import Cog
-from utilsx.discord.handlers import MessageHandler
 
-DISCORD_BOT_TOKEN = "XXXYOURTOKENHEREXXX"
+from utilsx.discord import Cog
+from utilsx.discord.objects import Field
+
+DISCORD_BOT_TOKEN = "NjQwNjI1NjgzNzk3NjM5MTgx.Xb8jKQ.t5b2lJ6m4OGRZfeACSPbnljlKUk"
+
+
+# DISCORD_BOT_TOKEN = "XXXYOURTOKENHEREXXX"
 
 
 class Bot(commands.Bot):
@@ -21,12 +25,10 @@ class UtilsX(Cog):
     def __init__(self, bot):
         super().__init__()
         self.bot = bot
-        self.message_handler = MessageHandler(prefix="Hey there, ", suffix="!\nI'm {name}")
 
     @commands.command(name="test")
     async def test(self, ctx: commands.Context):
-        await self.send(ctx, ctx.author.mention, format_args={"name": self.bot.user.name})
-        await self.embed(ctx, ctx.author.mention, format_args={"name": self.bot.user.name})
+        await self.embed(ctx, "Hello World!", color=0xff131a)
 
 
 if __name__ == "__main__":

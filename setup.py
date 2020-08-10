@@ -18,11 +18,19 @@ setup(
     author='Xiler Network - Arthurdw',
     author_email='mail.arthurdw@gmail.com',
     url='https://github.com/XilerNet/UtilsX',
-    download_url='https://github.com/XilerNet/UtilsX/archive/v0.0.0.tar.gz',
-    keywords=["Xiler", "utils"],
+    download_url='https://github.com/XilerNet/UtilsX/archive/v0.1.0.tar.gz',
+    keywords=["Xiler", "Utils", "Discord", "Embed", "Formatting", "Console", "Pretty"],
     install_requires=[],
     classifiers=[
-        'Development Status :: 3 - Alpha',  # "3 - Alpha", "4 - Beta" or "5 - Production/Stable"
+        'Development Status :: 2 - Pre-Alpha',
+        # Development statuses:
+        # Development Status :: 1 - Planning
+        # Development Status :: 2 - Pre-Alpha
+        # Development Status :: 3 - Alpha
+        # Development Status :: 4 - Beta
+        # Development Status :: 5 - Production/Stable
+        # Development Status :: 6 - Mature
+        # Development Status :: 7 - Inactive
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
         'License :: OSI Approved :: MIT License',
