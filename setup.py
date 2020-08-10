@@ -2,7 +2,7 @@ from distutils.core import setup
 
 from os import path
 
-from .utilsx import __version__
+from utilsx import __version__
 
 this_directory = path.abspath(path.dirname(__file__))
 with open(path.join(this_directory, 'README.rst'), encoding='utf-8') as f:
