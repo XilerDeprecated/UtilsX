@@ -20,7 +20,9 @@ setup(
     url='https://github.com/XilerNet/UtilsX',
     download_url='https://github.com/XilerNet/UtilsX/archive/v0.1.0.tar.gz',
     keywords=["Xiler", "Utils", "Discord", "Embed", "Formatting", "Console", "Pretty"],
-    install_requires=[],
+    install_requires=[
+        "discord.py"
+    ],
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         # Development statuses:
