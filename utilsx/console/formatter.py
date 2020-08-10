@@ -67,7 +67,8 @@ class Prettier:
                 f"{Colors.light_green.value}%y-%d-%m %H:%M:%S{Colors.dark_gray.value}]{Colors.default.value} ")
 
         self.default_text_format = \
-            str(kwargs.get("default_color") or Formats.default.value + Colors.default.value + Backgrounds.default.value)
+            str(kwargs.get("default_text_format") or Formats.default.value + Colors.default.value +
+                Backgrounds.default.value)
 
         # 'x if x is not None else `default`' -> Cheat code to check if a x is passed and if its not None (undefined)
         self.colors_enabled = bool(kwargs.get("colors_enabled") if kwargs.get("colors_enabled") is not None else True)

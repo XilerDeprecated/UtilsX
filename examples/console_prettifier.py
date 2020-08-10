@@ -1,7 +1,12 @@
-from utilsx.console.formatter import Prettier
+import utilsx
+from utilsx.console import Prettier, Colors
 from datetime import datetime
 
-p = Prettier()
 
-p.print("Hello World!", datetime.now())
+if __name__ == "__main__":
+    p = Prettier(default_text_format=Colors.yellow.value)
+
+    p.print(f"Running on UtilsX {utilsx.__version__}")
+
+    p.print("Hello World!", datetime.now())
 

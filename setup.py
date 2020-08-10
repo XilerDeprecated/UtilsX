@@ -2,7 +2,7 @@ from distutils.core import setup
 
 from os import path
 
-from utilsx import version
+from .utilsx import __version__
 
 this_directory = path.abspath(path.dirname(__file__))
 with open(path.join(this_directory, 'README.rst'), encoding='utf-8') as f:
@@ -11,7 +11,7 @@ with open(path.join(this_directory, 'README.rst'), encoding='utf-8') as f:
 setup(
     name='utilsx',
     packages=['utilsx'],
-    version=version,
+    version=__version__,
     license='MIT',
     description='The public Xiler python utility library.',
     long_description=long_description,
