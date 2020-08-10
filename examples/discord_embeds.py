@@ -1,12 +1,8 @@
 from discord.ext import commands
 
 from utilsx.discord import Cog
-from utilsx.discord.objects import Field
 
-DISCORD_BOT_TOKEN = "NjQwNjI1NjgzNzk3NjM5MTgx.Xb8jKQ.t5b2lJ6m4OGRZfeACSPbnljlKUk"
-
-
-# DISCORD_BOT_TOKEN = "XXXYOURTOKENHEREXXX"
+DISCORD_BOT_TOKEN = "XXXYOURTOKENHEREXXX"
 
 
 class Bot(commands.Bot):
