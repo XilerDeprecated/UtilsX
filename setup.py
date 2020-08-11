@@ -18,7 +18,7 @@ setup(
     author='Xiler Network - Arthurdw',
     author_email='mail.arthurdw@gmail.com',
     url='https://github.com/XilerNet/UtilsX',
-    download_url='https://github.com/XilerNet/UtilsX/archive/v0.1.2.tar.gz',
+    download_url='https://github.com/XilerNet/UtilsX/archive/v0.2.0.tar.gz',
     keywords=["Xiler", "Utils", "Discord", "Embed", "Formatting", "Console", "Pretty"],
     install_requires=[
         "discord.py"
