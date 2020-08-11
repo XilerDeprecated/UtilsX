@@ -31,7 +31,7 @@ class Cog(commands.Cog):
         self.embed_object = obj.Embed()
         self.message_handler = MessageHandler()
         self.footer_handler = FooterHandler(obj.Footer())
-        self.author_handler = AuthorHandler(obj.Author("Unfilled Parameter"))
+        self.author_handler = AuthorHandler(obj.Author(""))
 
     def handle_message(self, message: str, format_args: dict, handler_enabled: bool) -> str:
         """

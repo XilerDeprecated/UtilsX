@@ -1,20 +1,14 @@
 from discord.ext import commands
 
-from utilsx.discord import Cog
+from utilsx.discord import Cog, BotX
 
 DISCORD_BOT_TOKEN = "XXXYOURTOKENHEREXXX"
 
 
-class Bot(commands.Bot):
+class Bot(BotX):
     def __init__(self):
-        super().__init__(command_prefix="!",
-                         description="UtilsX discord embed example bot!",
-                         case_insensitive=True,
-                         help_attrs=dict(hidden=True))
+        super().__init__()
         self.add_cog(UtilsX(self))
-
-    def run(self):
-        super().run(DISCORD_BOT_TOKEN, reconnect=True)
 
 
 class UtilsX(Cog):
@@ -28,4 +22,4 @@ class UtilsX(Cog):
 
 
 if __name__ == "__main__":
-    Bot().run()
+    Bot().run(DISCORD_BOT_TOKEN)
