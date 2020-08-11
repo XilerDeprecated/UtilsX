@@ -25,7 +25,7 @@ class BotX(commands.Bot):
                            "Create a description by adding a `self.description = \"Your description\"` in the BotX init"
         self.case_insensitive = True
 
-        super().__init__(command_prefix=self.get_prefix, description=self.get_description(),
+        super().__init__(command_prefix=self.get_default_prefix, description=self.get_description(),
                          help_attrs=dict(hidden=True), case_insensitive=self.get_case_insensitive())
 
     def get_case_insensitive(self) -> bool:
@@ -40,7 +40,7 @@ class BotX(commands.Bot):
         """
         return self.description
 
-    def get_prefix(self, *args, **kwargs) -> str:
+    def get_default_prefix(self, *args, **kwargs) -> str:
         r"""
         Retrieves the bot prefix.
         """

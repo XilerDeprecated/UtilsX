@@ -1,5 +1,4 @@
 from datetime import datetime
-from random import randint
 from typing import List, Union
 
 from discord import Embed, File, AllowedMentions, Color
@@ -8,7 +7,7 @@ from discord.ext import commands
 from discord.message import Message
 
 from . import objects as obj
-from .handlers import MessageHandler, FooterHandler, AuthorHandler
+from .handlers import MessageHandler, FooterHandler, AuthorHandler, EmbedHandler
 
 
 class Cog(commands.Cog):
@@ -18,18 +17,18 @@ class Cog(commands.Cog):
 
     Attributes
     -----------
-    embed_object: :class:`Embed`
-        The default embed object.
     message_handler: :class:`MessageHandler`
         The message handler object.
+    embed_handler: :class:`EmbedHandler`
+        The default embed object.
     footer_handler: :class:`FooterHandler`
         The footer handler object.
     author_handler: :class:`AuthorHandler`
         The author handler object.
     """
     def __init__(self):
-        self.embed_object = obj.Embed()
         self.message_handler = MessageHandler()
+        self.embed_handler = EmbedHandler(obj.Embed())
         self.footer_handler = FooterHandler(obj.Footer())
         self.author_handler = AuthorHandler(obj.Author(""))
 
@@ -134,12 +133,12 @@ class Cog(commands.Cog):
             A sent discord.py message.
         """
         message = self.handle_message(message, format_args, handler_enabled)
-        color = color or self.embed_object.color or Color(int(hex(randint(0, 16581375)), 0))
-        embed = Embed(title=title or "", color=color, description=message)
-        if image:
-            embed.set_image(url=image)
-        if thumbnail:
-            embed.set_thumbnail(url=thumbnail)
+        embed_data = self.embed_handler.process(obj.Embed(color=color, title=title, image=image, thumbnail=thumbnail))
+        embed = Embed(title=embed_data.title, color=embed_data.color, description=message)
+        if embed_data.image:
+            embed.set_image(url=embed_data.image)
+        if embed_data.thumbnail:
+            embed.set_thumbnail(url=embed_data.thumbnail)
         footer = self.footer_handler.process(footer)
         if footer:
             embed.set_footer(text=footer.text, icon_url=footer.icon_url)

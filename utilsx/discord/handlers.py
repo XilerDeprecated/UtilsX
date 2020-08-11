@@ -1,4 +1,7 @@
+from random import randint
 from typing import Union
+
+from discord import Color
 
 from .exceptions import MissingFormatArguments
 from .objects import Footer, Author, Embed
@@ -15,6 +18,7 @@ class MessageHandler:
     suffix: :class:`str`
         The string that will be appended.
     """
+
     def __init__(self, *, prefix: str = "", suffix: str = ""):
         self.prefix = prefix
         self.suffix = suffix
@@ -57,6 +61,7 @@ class FooterHandler:
     footer: :class:`Footer`
         The default footer object.
     """
+
     def __init__(self, footer: Footer):
         self.footer = footer
 
@@ -92,6 +97,7 @@ class AuthorHandler:
     author: :class:`Author`
         The default author object.
     """
+
     def __init__(self, author: Author):
         self.author = author
 
@@ -127,6 +133,7 @@ class EmbedHandler:
     embed: :class:`Embed`
         The default author object.
     """
+
     def __init__(self, embed: Embed):
         self.embed = embed
 
@@ -145,8 +152,8 @@ class EmbedHandler:
             A valid embed object or None
         """
         if obj:
-            return Embed(color=(obj.color or self.embed.color),
-                         title=(obj.color or self.embed.color),
+            return Embed(color=(obj.color or self.embed.color or Color(int(hex(randint(0, 16581375)), 0))),
+                         title=(obj.title or self.embed.title),
                          image=(obj.image or self.embed.image),
                          thumbnail=(obj.thumbnail or self.embed.thumbnail))
         elif self.embed:
