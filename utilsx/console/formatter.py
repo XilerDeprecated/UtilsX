@@ -9,6 +9,16 @@ codes = list(map(lambda i: f"\033[{i}m",
 
 
 class Formats(Enum):
+    r"""
+    Enum for console formats/styling codes.
+
+    Example:
+        print(f"{Formats.underline.value}Underline text{Formats.default.value}")
+
+    NOTE
+    --------
+    Some CLI's may not support this formatting.
+    """
     default = "\033[0m\033[21m\033[22m\033[24m\033[25m\033[27m\033[28m"
     dim = "\033[2m"
     underline = "\033[4m"
@@ -18,6 +28,16 @@ class Formats(Enum):
 
 
 class Colors(Enum):
+    r"""
+    Enum for console color codes.
+
+    Example:
+        print(f"{Colors.yellow.value}Yellow text{Colors.default.value}")
+
+    NOTE
+    --------
+    Some CLI's may not support colors.
+    """
     default = "\033[39m"
     black = "\033[30m"
     red = "\033[31m"
@@ -38,6 +58,16 @@ class Colors(Enum):
 
 
 class Backgrounds(Enum):
+    r"""
+    Enum for console background color codes.
+
+    Example:
+        print(f"{Backgrounds.red.value}This text has a red background{Backgrounds.default.value}")
+
+    NOTE
+    --------
+    Some CLI's may not support background colors.
+    """
     default = "\033[49m"
     black = "\033[40m"
     red = "\033[41m"
@@ -58,7 +88,25 @@ class Backgrounds(Enum):
 
 
 class Prettier:
-    """Console formatter"""
+    r"""
+    UtilsX its solution for easily formatting your consoles. Prettier
+    can make your programs look more professional with almost no effort!
+
+    Parameters
+    ------------
+    datetime_format: :class:`str`
+        The datetime format that your entered datetime object will take.
+        The default format is `[%y-%d-%m %H:%M:%S] `.
+    default_text_format: :class:`str`
+        The default way text will be formatted in a print. This can be a
+        color, format or background. (or combined)
+    colors_enabled: :class:`bool`
+        If colors should be enabled in the console. If false it will strip
+        all color codes from the message.
+    auto_strip_message: :class:`bool`
+        If the pretty printer should automatically apply the python .strip()
+        method to the content.
+    """
 
     def __init__(self, **kwargs):
         self.datetime_format = \
@@ -77,22 +125,71 @@ class Prettier:
 
     @staticmethod
     def clear_colors(msg: str):
-        """Removes ALL color codes from a string."""
+        r"""
+        Clears all known color codes from a given message.
+
+        Parameters
+        ------------
+        msg: :class:`str`
+            The message that is the target.
+
+        Returns
+        ------------
+        :class:`str`
+            A color code stripped string.
+        """
         for code in codes:
             msg = msg.replace(code, "")
         return msg
 
     def print(self, message: str, time: datetime = None) -> None:
-        """Pretty prints a given message"""
+        r"""
+        Pretty prints a given message.
+
+        Parameters
+        ------------
+        message: :class:`str`
+            The message that must be pretty printed
+        time: :class:`datetime`
+            The printed datetime object. (Optional)
+        """
         print(self.format(message, time))
 
     def format(self, message: str, time: datetime = None) -> str:
-        """Formats a given message"""
+        r"""
+        Formats a message, this method is also called in the
+        Prettier print statement!
+
+        Parameters
+        ------------
+        message: :class:`str`
+            The message that must be formatted
+        time: :class:`datetime`
+            The printed datetime object. (Optional)
+
+        Returns
+        ------------
+        :class:`str`
+            A formatted string.
+        """
         data = str((self.format_timestamp(time) if time is not None else '') + self.default_text_format +
                    (message.strip() if self.auto_strip_message else message))
         return data if self.colors_enabled else self.clear_colors(data)
 
     def format_timestamp(self, time: datetime) -> str:
-        """Formats a timestamp"""
+        r"""
+        Formats a datetime object, this method is also called in the
+        Prettier format statement!
+
+        Parameters
+        ------------
+        time: :class:`datetime`
+            The datetime object that must be formatted
+
+        Returns
+        ------------
+        :class:`str`
+            A formatted datetime object.
+        """
         formatted = time.strftime(self.datetime_format)
         return formatted if self.colors_enabled else self.clear_colors(formatted)
