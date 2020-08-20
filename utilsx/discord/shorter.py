@@ -10,7 +10,7 @@ class BotX(commands.Bot):
 
     Attributes
     -----------
-    prefix: :class:`Union[str, callable, list]`
+    prefix: :class:`Union[str, callable, List[str]]`
         The bot its prefix, default is '!'
     description: :class:`str`
         The bot its description.
