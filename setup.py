@@ -1,5 +1,4 @@
 from distutils.core import setup
-
 from os import path
 
 from utilsx import __version__
@@ -10,15 +9,18 @@ with open(path.join(this_directory, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='utilsx',
-    packages=['utilsx'],
+    packages=['utilsx', 'utilsx.discord', 'utilsx.console'],
     version=__version__,
     license='MIT',
     description='The public Xiler python utility library.',
+    project_urls={
+        "Documentation": "https://docs.xiler.net/utilsx",
+    },
     long_description=long_description,
     author='Xiler Network - Arthurdw',
     author_email='mail.arthurdw@gmail.com',
     url='https://github.com/XilerNet/UtilsX',
-    download_url='https://github.com/XilerNet/UtilsX/archive/v0.2.1.tar.gz',
+    download_url='https://github.com/XilerNet/UtilsX/archive/v0.2.2.tar.gz',
     keywords=["Xiler", "Utils", "Discord", "Embed", "Formatting", "Console", "Pretty"],
     install_requires=[
         "discord.py"
