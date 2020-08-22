@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Iterable
 
 from discord.ext import commands
 from discord.ext.commands import Cog
@@ -59,7 +59,7 @@ class BotX(commands.Bot):
         """
         super().run(token, reconnect=True)
 
-    def load_extensions(self, extensions: List[str]) -> None:
+    def load_extensions(self, extensions: List[str]) -> Iterable:
         r"""
         Loads all extensions from a list
 
@@ -72,7 +72,7 @@ class BotX(commands.Bot):
             self.load_extension(extension)
             yield
 
-    def unload_extensions(self, extensions: List[str]) -> None:
+    def unload_extensions(self, extensions: List[str]) -> Iterable:
         r"""
         Unloads all extensions from a list
 
