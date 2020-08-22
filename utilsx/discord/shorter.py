@@ -70,6 +70,7 @@ class BotX(commands.Bot):
         """
         for extension in extensions:
             self.load_extension(extension)
+            yield
 
     def unload_extensions(self, extensions: List[str]) -> None:
         r"""
@@ -82,6 +83,7 @@ class BotX(commands.Bot):
         """
         for extension in extensions:
             self.unload_extension(extension)
+            yield
 
     def load_cogs(self, cogs: List[Cog]) -> None:
         r"""
