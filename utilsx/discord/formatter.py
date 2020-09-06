@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List, Union, Optional
+from typing import List, Union
 
 from discord import Embed, File, AllowedMentions, Color
 from discord.abc import Messageable
@@ -95,7 +95,7 @@ class Cog(commands.Cog):
     async def embed(self, target: Messageable, message: str, *, title: str = None, raw: str = "",
                     handler_enabled: bool = True, color: Union[Color, int] = None, format_args: dict = None,
                     image: str = None, thumbnail: str = None, footer: obj.Footer = None, author: obj.Author = None,
-                    fields: List[obj.Field] = None, get_embed: bool = False) -> Optional[Message, Embed]:
+                    fields: List[obj.Field] = None, get_embed: bool = False) -> Union[Message, Embed]:
         """
         Processes a message and forwards it to the default discord.py send method.
 
