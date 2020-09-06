@@ -95,7 +95,7 @@ class Cog(commands.Cog):
     async def embed(self, target: Messageable, message: str, *, title: str = None, raw: str = "",
                     handler_enabled: bool = True, color: Union[Color, int] = None, format_args: dict = None,
                     image: str = None, thumbnail: str = None, footer: obj.Footer = None, author: obj.Author = None,
-                    fields: List[obj.Field] = None) -> Message:
+                    fields: List[obj.Field] = None, get_embed: bool = False) -> Union[Message, Embed]:
         """
         Processes a message and forwards it to the default discord.py send method.
 
@@ -125,6 +125,8 @@ class Cog(commands.Cog):
             A utilsX author object that will format the embed author section.
         fields: :class:`List[obj.Field]`
             A list (up to 25) objects that will format the embed fields.
+        get_embed: :class:`bool`
+            If this boolean is set to true it will return the generated embed object. Default is false.
 
 
         Returns
@@ -150,4 +152,6 @@ class Cog(commands.Cog):
         if fields:
             for field in fields:
                 embed.add_field(name=field.name, value=field.value, inline=field.inline)
+        if get_embed:
+            return embed
         return await target.send(raw, embed=embed)
