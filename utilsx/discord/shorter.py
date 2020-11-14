@@ -18,6 +18,8 @@ class BotX(commands.Bot):
     case_insensitive: :class:`bool`
         If the bot will reply to all commands or only the
         case correct commands, default is True. (replies to all)
+    intent: :class:`discord.Intents`
+        The discord intents object that will be applied to the bot.
     """
 
     def __init__(self):
