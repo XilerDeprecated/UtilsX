@@ -31,7 +31,7 @@ class BotX(commands.Bot):
 
         super().__init__(command_prefix=self.get_default_prefix, description=self.get_description(),
                          help_attrs=dict(hidden=True), case_insensitive=self.get_case_insensitive(),
-                         intents=self.intent)
+                         intents=self.get_intents())
 
     def get_case_insensitive(self) -> bool:
         r"""
@@ -44,6 +44,12 @@ class BotX(commands.Bot):
         Retrieves the bot description.
         """
         return self.description
+
+    def get_intents(self) -> Intents:
+        r"""
+        Retrieves the bot description.
+        """
+        return self.intent
 
     def get_default_prefix(self, *args, **kwargs) -> str:
         r"""
