@@ -1,5 +1,6 @@
 from typing import List, Iterable
 
+from discord import Intents
 from discord.ext import commands
 from discord.ext.commands import Cog
 
@@ -24,9 +25,11 @@ class BotX(commands.Bot):
         self.description = "Bot description is unset!\n" \
                            "Create a description by adding a `self.description = \"Your description\"` in the BotX init"
         self.case_insensitive = True
+        self.intent = Intents()
 
         super().__init__(command_prefix=self.get_default_prefix, description=self.get_description(),
-                         help_attrs=dict(hidden=True), case_insensitive=self.get_case_insensitive())
+                         help_attrs=dict(hidden=True), case_insensitive=self.get_case_insensitive(),
+                         intents=self.intent)
 
     def get_case_insensitive(self) -> bool:
         r"""
