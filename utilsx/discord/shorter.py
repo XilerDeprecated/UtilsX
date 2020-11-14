@@ -9,6 +9,11 @@ class BotX(commands.Bot):
     r"""
     Shortens the code to create a bot instance.
 
+    Parameters
+    ----------
+    intent: :class:`discord.Intents`
+        The discord intents object that will be applied to the bot.
+
     Attributes
     -----------
     prefix: :class:`Union[str, callable, List[str]]`
@@ -22,16 +27,16 @@ class BotX(commands.Bot):
         The discord intents object that will be applied to the bot.
     """
 
-    def __init__(self):
+    def __init__(self, intents=Intents()):
         self.prefix = "!"
         self.description = "Bot description is unset!\n" \
                            "Create a description by adding a `self.description = \"Your description\"` in the BotX init"
         self.case_insensitive = True
-        self.intent = Intents()
+        self.intent = intents
 
         super().__init__(command_prefix=self.get_default_prefix, description=self.get_description(),
                          help_attrs=dict(hidden=True), case_insensitive=self.get_case_insensitive(),
-                         intents=self.get_intents())
+                         intents=self.intent)
 
     def get_case_insensitive(self) -> bool:
         r"""
@@ -44,12 +49,6 @@ class BotX(commands.Bot):
         Retrieves the bot description.
         """
         return self.description
-
-    def get_intents(self) -> Intents:
-        r"""
-        Retrieves the bot description.
-        """
-        return self.intent
 
     def get_default_prefix(self, *args, **kwargs) -> str:
         r"""
