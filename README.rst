@@ -1,4 +1,4 @@
-.. image:: https://prototype.xiler.net/assets/logo-128x.png
+.. image:: https://www.xiler.net/assets/logo-128x.png
     :alt: Xiler Icon
 
 UtilsX
