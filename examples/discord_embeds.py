@@ -2,8 +2,6 @@ from discord.ext import commands
 
 from utilsx.discord import Cog, BotX
 
-DISCORD_BOT_TOKEN = "XXXYOURTOKENHEREXXX"
-
 
 class Bot(BotX):
     def __init__(self):
@@ -22,4 +20,4 @@ class UtilsX(Cog):
 
 
 if __name__ == "__main__":
-    Bot().run(DISCORD_BOT_TOKEN)
+    Bot().run("XXXYOURTOKENHEREXXX") # Fetch this from the enviroment in production!
