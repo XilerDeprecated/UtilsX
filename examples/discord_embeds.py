@@ -20,4 +20,5 @@ class UtilsX(Cog):
 
 
 if __name__ == "__main__":
-    Bot().run("XXXYOURTOKENHEREXXX") # Fetch this from the enviroment in production!
+    # Fetch this from the enviroment in production!
+    Bot().run("XXXYOURTOKENHEREXXX")
