@@ -26,6 +26,7 @@ class Cog(commands.Cog):
     author_handler: :class:`AuthorHandler`
         The author handler object.
     """
+
     def __init__(self):
         self.message_handler = MessageHandler()
         self.embed_handler = EmbedHandler(obj.Embed())
@@ -135,7 +136,8 @@ class Cog(commands.Cog):
             A sent discord.py message.
         """
         message = self.handle_message(message, format_args, handler_enabled)
-        embed_data = self.embed_handler.process(obj.Embed(color=color, title=title, image=image, thumbnail=thumbnail))
+        embed_data = self.embed_handler.process(
+            obj.Embed(color=color, title=title or " ", image=image, thumbnail=thumbnail))
         embed = Embed(title=embed_data.title, color=embed_data.color, description=message)
         if embed_data.image:
             embed.set_image(url=embed_data.image)
